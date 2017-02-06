@@ -1,0 +1,68 @@
+<div>
+    <h2 data-translate="assignment2App.soccerplayer.home.title">Soccerplayers</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="soccerplayer.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="assignment2App.soccerplayer.home.createLabel">
+                        Create new Soccerplayer
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="assignment2App.soccerplayer.name">Name</span></th>
+                    <th><span data-translate="assignment2App.soccerplayer.goal">Goal</span></th>
+                    <th><span data-translate="assignment2App.soccerplayer.position">Position</span></th>
+                    <th><span data-translate="assignment2App.soccerplayer.country">Country</span></th>
+                    <th><span data-translate="assignment2App.soccerplayer.club">Club</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="soccerplayer in vm.soccerplayers track by soccerplayer.id">
+                    <td><a ui-sref="soccerplayer-detail({id:soccerplayer.id})">{{soccerplayer.id}}</a></td>
+                    <td>{{soccerplayer.name}}</td>
+                    <td>{{soccerplayer.goal}}</td>
+                    <td>{{soccerplayer.position}}</td>
+                    <td>
+                        <a ui-sref="country-detail({id:soccerplayer.country.id})">{{soccerplayer.country.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="club-detail({id:soccerplayer.club.id})">{{soccerplayer.club.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="soccerplayer-detail({id:soccerplayer.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="soccerplayer.edit({id:soccerplayer.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="soccerplayer.delete({id:soccerplayer.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

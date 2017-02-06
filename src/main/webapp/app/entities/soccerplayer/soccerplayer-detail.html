@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span data-translate="assignment2App.soccerplayer.detail.title">Soccerplayer</span> {{vm.soccerplayer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="assignment2App.soccerplayer.name">Name</span></dt>
+        <dd>
+            <span>{{vm.soccerplayer.name}}</span>
+        </dd>
+        <dt><span data-translate="assignment2App.soccerplayer.goal">Goal</span></dt>
+        <dd>
+            <span>{{vm.soccerplayer.goal}}</span>
+        </dd>
+        <dt><span data-translate="assignment2App.soccerplayer.position">Position</span></dt>
+        <dd>
+            <span>{{vm.soccerplayer.position}}</span>
+        </dd>
+        <dt><span data-translate="assignment2App.soccerplayer.country">Country</span></dt>
+        <dd>
+            <a ui-sref="country-detail({id:vm.soccerplayer.country.id})">{{vm.soccerplayer.country.name}}</a>
+        </dd>
+        <dt><span data-translate="assignment2App.soccerplayer.club">Club</span></dt>
+        <dd>
+            <a ui-sref="club-detail({id:vm.soccerplayer.club.id})">{{vm.soccerplayer.club.name}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="soccerplayer-detail.edit({id:vm.soccerplayer.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

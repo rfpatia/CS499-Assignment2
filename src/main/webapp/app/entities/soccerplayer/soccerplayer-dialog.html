@@ -1,0 +1,90 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="mySoccerplayerLabel" data-translate="assignment2App.soccerplayer.home.createOrEditLabel">Create or edit a Soccerplayer</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.soccerplayer.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.soccerplayer.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assignment2App.soccerplayer.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.soccerplayer.name"
+                    required />
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assignment2App.soccerplayer.goal" for="field_goal">Goal</label>
+            <input type="number" class="form-control" name="goal" id="field_goal"
+                    ng-model="vm.soccerplayer.goal"
+                    required />
+            <div ng-show="editForm.goal.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.goal.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.goal.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="assignment2App.soccerplayer.position" for="field_position">Position</label>
+            <input type="text" class="form-control" name="position" id="field_position"
+                    ng-model="vm.soccerplayer.position"
+                    required />
+            <div ng-show="editForm.position.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.position.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="assignment2App.soccerplayer.country" for="field_country">Country</label>
+            <select class="form-control" id="field_country" name="country" ng-model="vm.soccerplayer.country" ng-options="country as country.name for country in vm.countries | orderBy:'id' track by country.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.country.$invalid">
+            <p class="help-block"
+                ng-show="editForm.country.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label data-translate="assignment2App.soccerplayer.club" for="field_club">Club</label>
+            <select class="form-control" id="field_club" name="club" ng-model="vm.soccerplayer.club" ng-options="club as club.name for club in vm.clubs | orderBy:'id' track by club.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.club.$invalid">
+            <p class="help-block"
+                ng-show="editForm.club.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="assignment2App.club.detail.title">Club</span> {{vm.club.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="assignment2App.club.name">Name</span></dt>
+        <dd>
+            <span>{{vm.club.name}}</span>
+        </dd>
+        <dt><span data-translate="assignment2App.club.coach">Coach</span></dt>
+        <dd>
+            <span>{{vm.club.coach}}</span>
+        </dd>
+        <dt><span data-translate="assignment2App.club.stadium">Stadium</span></dt>
+        <dd>
+            <span>{{vm.club.stadium}}</span>
+        </dd>
+        <dt><span data-translate="assignment2App.club.league">League</span></dt>
+        <dd>
+            <span>{{vm.club.league}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="club-detail.edit({id:vm.club.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
